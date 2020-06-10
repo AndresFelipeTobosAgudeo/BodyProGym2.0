@@ -194,3 +194,29 @@ ALTER TABLE public.deportista_clase
 
 
 ------------------------------------------
+
+CREATE DATABASE bdexterna
+    WITH 
+    OWNER = unicentral
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'C'
+    LC_CTYPE = 'C'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+-------------------------------------
+
+CREATE TABLE public.asistente
+(
+    nombre character varying(40) COLLATE pg_catalog."default",
+    cedula character varying(20) COLLATE pg_catalog."default",
+    cedulamod character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT asistente_pkey PRIMARY KEY (cedulamod)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.asistente
+    OWNER to unicentral;
