@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Clase</title>
+    </h:head>
+    <h:body>
+        <b:navBar brand="BodyProGym" inverse="true" >
+            <b:navbarLinks pull="right" styleClass="hidden-xs">
+                <b:dropMenu value="Opciones">
+                    <b:navLink header="Paginas"></b:navLink>
+                    <b:navLink value="Inicio" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Informacion"></b:navLink>
+                    <b:navLink value="Acerca De" href="#"></b:navLink>
+                    <b:navLink value="Informacion" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h2 style="background-color:rgba(153, 153, 255, 0.5);" align="center">Registro de clases</h2>
+                <h2><b:label text="#{crearClaseGrupalBean.nm}"  large-screen="full-width" /></h2>
+            </b:container>
+        </b:jumbotron>
+
+        <b:column>
+            <h:outputStylesheet library="css" name="ClaseGrupal.css"/>
+            <p:fieldset legend="Edicion de datos Clase Grupal" >
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+                <h:panelGrid columns="2" cellpadding="20" >
+                    <p:outputLabel value="Nombre" />
+                    <p:inputText value="#{editarClase.nombre}"/>
+                    <p:outputLabel value="Fecha" />
+                    <p:calendar id="popup" value="#{editarClase.fecha}" pattern="yyyy-MM-dd" locale="es"/>
+                    <p:outputLabel value="Capacidad" />
+                    <p:inputNumber value="#{editarClase.capacidad}"/>
+                    <p:outputLabel value="Objetivo" />
+                    <p:inputTextarea value="#{editarClase.objetivo}"/>
+                    <p:outputLabel value="Costo" />
+                    <p:inputNumber value="#{editarClase.costo}"/>
+                    <p:outputLabel value="Lugar" />
+                    <p:inputTextarea value="#{editarClase.lugar}"/>
+                    <p:outputLabel value="Instructor" />
+                    <p:selectCheckboxMenu value="#{editarClase.instructor}" label="Instructores" filterMatchMode="startsWith" panelStyle="width:250px">
+                        <f:selectItems value="#{editarClase.list}" />
+                    </p:selectCheckboxMenu>
+                </h:panelGrid>   
+            </p:fieldset>
+            <b:commandButton value="Guardar" action="#{editarClase.editar()}" look="primary" icon="pi pi-save" update="@form"/>
+            <h:outputScript library="js" name="spanishLocale.js"/>
+        </b:column>
+
+        <b:row>
+            <b:column col-md="10" offset="1">
+                <b:well>
+                    <b:row>
+                        <b:column col-md="4" offset="1">
+                            <b:row >
+                                <h3><b:label text="Contactos" large-screen="half"/></h3>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Cruz Sergio" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Tobos Felipe" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                        </b:column>
+                        <b:column col-md="7">
+                            <b:image name="test" small-screen="half"  value="resources/images/logo-uc-2020_o2-1-400x80.png" />
+                        </b:column>
+                    </b:row>
+                </b:well>
+            </b:column>
+        </b:row>
+    </h:body>
+</html>
+

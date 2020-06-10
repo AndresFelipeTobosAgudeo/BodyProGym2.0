@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Compras</title>
+        <f:event type="preRenderView" listener="#{compraBean.verificar()}"/>
+    </h:head>
+    <h:body>
+        <b:navBar brand="BodyProGym" inverse="true" >
+            <b:navbarLinks pull="right" styleClass="hidden-xs">
+                <b:dropMenu value="Opciones">
+                    <b:navLink header="Paginas"></b:navLink>
+                    <b:navLink value="Inicio" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Informacion"></b:navLink>
+                    <b:navLink value="Acerca De" href="#"></b:navLink>
+                    <b:navLink value="Informacion" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h2 style="background-color:rgba(153, 153, 255, 0.5);" align="center">Compras</h2>
+                <h2><b:label text="#{compraBean.ml}"  large-screen="full-width" /></h2>
+            </b:container>
+        </b:jumbotron>
+
+        <h:form>
+            <b:container>
+                <p:messages id="messages" showDetail="true" closable="true">
+                            <p:autoUpdate />
+                        </p:messages>
+                <b:panel title="Lista" look="primary" collapsible="false">
+                    <b:dataTable value="#{compraBean.lisclase}" var="clas">
+                        <b:dataTableColumn value="#{clas.nombre}" label="Nombre de la clase"/>
+                        <b:dataTableColumn value="#{clas.fecha}" label="Fecha de realizacion"/>
+                        <b:dataTableColumn value="#{clas.descripcion}" label="Descripcion"/>
+                        <b:dataTableColumn value="#{clas.capacidad}" label="Capacidad"/>
+                        <b:dataTableColumn value="#{clas.costo}" label="Costo"/>
+                        <b:dataTableColumn value="#{clas.lugar}" label="Lugar"/>
+                        <b:dataTableColumn label="OPCION">
+                            <b:commandButton value="Registrarse" look="primary" action="#{compraBean.registro(clas)}">
+                                <f:ajax execute="@this" render="@form" />
+                            </b:commandButton>
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </b:panel>
+                <b:commandButton actionListener="#{indexBean.cerrarSesion()}" value="Salir" action="/index?faces-redirect=true" look="primary"/>
+            </b:container>
+        </h:form>
+
+        <b:row>
+            <b:column col-md="10" offset="1">
+                <b:well>
+                    <b:row>
+                        <b:column col-md="4" offset="1">
+                            <b:row >
+                                <h3><b:label text="Contactos" large-screen="half"/></h3>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Ingrese nombre y telefono 1" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Ingrese nombre y telefono 2" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                        </b:column>
+                        <b:column col-md="7">
+                            <b:image name="test" small-screen="half"  value="resources/images/logo-uc-2020_o2-1-400x80.png" />
+                        </b:column>
+                    </b:row>
+                </b:well>
+            </b:column>
+        </b:row>
+    </h:body>
+</html>
+

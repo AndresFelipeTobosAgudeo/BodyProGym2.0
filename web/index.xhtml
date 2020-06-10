@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+    <h:head>
+        <title>BodyProGym APP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body>
+        <b:navBar brand="BodyProGym" inverse="true" >
+            <b:navbarLinks pull="right" styleClass="hidden-xs">
+                <b:dropMenu value="Opciones">
+                    <b:navLink header="Paginas"></b:navLink>
+                    <b:navLink value="Inicio" href="#" ></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Informacion"></b:navLink>
+                    <b:navLink value="Acerca De" href="#"></b:navLink>
+                    <b:navLink value="Informacion" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h1 style="background-color:rgba(153, 153, 255, 0.5);" align="center">BodyProGym</h1>
+            </b:container>
+        </b:jumbotron>
+        <h:form>
+            <b:container>
+                <b:panel title="Opciones" look="primary" collapsible="false">
+                    <b:row>
+                        <b:column span="3" offset="1">
+                            <b:image name="test" small-screen="two-thirds" value="resources/images/WhatsApp Image 2020-05-27 at 4.36.07 PM.jpeg" />
+                        </b:column>
+                        <b:column span="3" offset="1">
+                            <b:image name="test" small-screen="two-thirds" value="resources/images/WhatsApp Image 2020-05-27 at 4.36.07 PM (2).jpeg" />
+                        </b:column>
+                        <b:column span="3" offset="1"> 
+                            <b:image name="test" small-screen="two-thirds" value="resources/images/WhatsApp Image 2020-05-27 at 4.36.07 PM (1).jpeg" />
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column span="3" offset="1">
+                            <b:commandButton value="INFORMACION DEL PLAN" action="#{indexBean.irInformacion()}" look="primary" update="@form" style="width:100%"/>
+                        </b:column>
+                        <b:column span="3" offset="1">
+                            <b:commandButton value="COMPRAS" action="#{indexBean.irCompras()}" look="primary" update="@form" style="width:100%"/>
+                        </b:column>
+                        <b:column span="3" offset="1">
+                            <b:commandButton value="CLASES GRUPALES" action="#{indexBean.irClases()}" look="primary" update="@form" style="width:100%" />
+                        </b:column>
+                    </b:row>
+                </b:panel>
+            </b:container>
+        </h:form>
+
+        <b:row>
+            <b:column col-md="10" offset="1">
+                <b:well>
+                    <b:row>
+                        <b:column col-md="4" offset="1">
+                            <b:row >
+                                <h3><b:label text="Contactos" large-screen="half"/></h3>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Cruz Sergio" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                            <b:row>
+                                <h4><b:label text="Tobos Felipe" severity="info" large-screen="full-width"/></h4>
+                            </b:row>
+                        </b:column>
+                        <b:column col-md="7">
+                            <b:image name="test" small-screen="half"  value="resources/images/logo-uc-2020_o2-1-400x80.png" />
+                        </b:column>
+                    </b:row>
+                </b:well>
+            </b:column>
+        </b:row>
+
+    </h:body>
+</html>
+
